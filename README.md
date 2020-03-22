@@ -4,7 +4,8 @@ Meditation timer app built in React Native
 
 ## Running locally
 
-Clone the repository to your local drive
+Clone the repository to your local drive\
+Run `npm i`
 ### Using a phone
 Run `npm start` and scan the QR code using the expo app
 ### Android
