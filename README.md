@@ -2,9 +2,20 @@
 
 Meditation timer app built in React Native
 
-# Running locally
+## Running locally
 
-Clone the repository to your local drive
+Clone the repository to your local drive\
 Run `npm run ios` to open a simulator (you will need to install XCode)
 
-# Namaste
+## TODO List
+
+Make `Begin` button styling better\
+Fix fade transitions on iOS\
+Improve button spacing on timer screen\
+Prevent hiding the timer when paused\
+
+Long term\
+Implement Typescript\
+Re-write with functional components\
+
+## Namaste
