@@ -21,4 +21,4 @@ Add logo to home screen
 Implement Typescript\
 Re-write with functional components
 
-## ~Namaste~
+## ~ Namaste ~
