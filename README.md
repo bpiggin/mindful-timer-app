@@ -5,7 +5,12 @@ Meditation timer app built in React Native
 ## Running locally
 
 Clone the repository to your local drive\
-Run `npm run ios` to open a simulator (you will need to install XCode)
+### Using a phone
+Run `npm start` and scan the QR code using the expo app
+### Android
+Run `npm run android` to open an emulator (requires Android Studio)
+### iOS
+Run `npm run ios` to open a simulator (requires XCode)
 
 ## TODO List
 
