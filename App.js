@@ -6,10 +6,10 @@ import * as Font from "expo-font";
 import { Transition } from "react-native-reanimated";
 
 //Screens
-import HomeScreen from "./HomeScreen.js";
-import SettleScreen from "./SettleScreen.js";
-import TimerScreen from "./TimerScreen.js";
-import CompletionScreen from "./CompletionScreen.js";
+import HomeScreen from "./screens/HomeScreen.js";
+import SettleScreen from "./screens/SettleScreen.js";
+import TimerScreen from "./screens/TimerScreen.js";
+import CompletionScreen from "./screens/CompletionScreen.js";
 
 /*
  * Navigation.
@@ -77,6 +77,7 @@ const RootStack = createStackNavigator(
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
+  //Load fonts.
   componentDidMount() {
     Font.loadAsync({
       "open-sans-regular": require("./assets/fonts/OpenSans-Regular.ttf")
