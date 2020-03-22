@@ -12,10 +12,11 @@ Run `npm run ios` to open a simulator (you will need to install XCode)
 Make `Begin` button styling better\
 Fix fade transitions on iOS\
 Improve button spacing on timer screen\
-Prevent hiding the timer when paused\
+Prevent hiding the timer when paused
 
-Long term\
+### Long term
+
 Implement Typescript\
-Re-write with functional components\
+Re-write with functional components
 
 ## Namaste
