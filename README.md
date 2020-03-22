@@ -1,4 +1,4 @@
-# mindful-timer-app
+# ![](assets/icon.png) mindful-timer-app
 
 Meditation timer app built in React Native
 
@@ -18,7 +18,7 @@ Add logo to home screen
 
 ### Long term
 
-Implement Typescript\
+Implement **Typescript**\
 Re-write with functional components
 
 ## ~ Namaste ~
