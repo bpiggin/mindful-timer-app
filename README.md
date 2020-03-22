@@ -1,4 +1,4 @@
-# <img src="assets/icon.png" width="50"> mindful-timer-app
+# <img src="assets/icon.png" width="25"> mindful-timer-app
 
 Meditation timer app built in React Native
 
