@@ -6,11 +6,17 @@ Meditation timer app built in React Native
 
 Clone the repository to your local drive\
 Run `npm i`
+
 ### Using a phone
+
 Run `npm start` and scan the QR code using the expo app
+
 ### Android
+
 Run `npm run android` to open an emulator (requires Android Studio)
+
 ### iOS
+
 Run `npm run ios` to open a simulator (requires XCode)
 
 ## TODO List
@@ -19,6 +25,7 @@ Make `Begin` button styling better\
 Fix fade transitions on iOS\
 Improve button spacing on timer screen\
 Prevent hiding the timer when paused\
+Disable pause button when timer is hidden\
 Improve dark theme color scheme\
 Add logo to home screen
 
