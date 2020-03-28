@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { Easing, Animated } from "react-native";
 import * as Font from "expo-font";
-import { Transition } from "react-native-reanimated";
 
 //Screens
 import HomeScreen from "./screens/HomeScreen.js";
@@ -76,14 +75,17 @@ const RootStack = createStackNavigator(
 );
 const AppContainer = createAppContainer(RootStack);
 
-export default class App extends React.Component {
-  //Load fonts.
-  componentDidMount() {
-    Font.loadAsync({
+export default App = () => {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  const loadFonts = async () => {
+    await Font.loadAsync({
       "open-sans-regular": require("./assets/fonts/OpenSans-Regular.ttf")
     });
-  }
-  render() {
-    return <AppContainer />;
-  }
-}
+    setFontsLoaded(true);
+  };
+
+  useEffect(loadFonts, []);
+
+  return fontsLoaded ? <AppContainer /> : null;
+};

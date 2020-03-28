@@ -1,3 +1,4 @@
+import React from "react";
 import { Audio } from "expo-av";
 import { Feather } from "@expo/vector-icons";
 import { Text, View, TouchableOpacity } from "react-native";
@@ -34,7 +35,7 @@ export default class Timer extends React.Component {
       this.playbackInstance.setOnPlaybackStatusUpdate(null);
       this.playbackInstance = null;
     }
-    const source = require("./assets/bell.mp3");
+    const source = require("../assets/bell.mp3");
     const initialStatus = {
       shouldPlay: true,
       rate: 1.0,

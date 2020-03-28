@@ -30,7 +30,7 @@ export default class CompletionScreen extends React.Component {
       this.playbackInstance.setOnPlaybackStatusUpdate(null);
       this.playbackInstance = null;
     }
-    const source = require("./assets/bell.mp3");
+    const source = require("../assets/bell.mp3");
     const initialStatus = {
       shouldPlay: true,
       rate: 1.0,
