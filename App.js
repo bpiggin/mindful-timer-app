@@ -85,7 +85,9 @@ export default App = () => {
     setFontsLoaded(true);
   };
 
-  useEffect(loadFonts, []);
+  useEffect(() => {
+    loadFonts();
+  }, []);
 
   return fontsLoaded ? <AppContainer /> : null;
 };
