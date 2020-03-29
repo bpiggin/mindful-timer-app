@@ -1,14 +1,14 @@
 import { Easing, Animated } from "react-native";
+import { TransitionSpec } from "react-navigation-stack/lib/typescript/src/vendor/types";
 
 //Transition animation.
-export const fade /*({ current, closing }) => ({
+//TRY ME!
+/*const forFade = ({ current, closing }) => ({
   cardStyle: {
     opacity: current.progress,
-  }
-})*/ = ({
-  current,
-  next,
-}) => {
+  },
+});*/
+export const fade = ({ current, next }: any) => {
   const opacity = Animated.add(
     current.progress,
     next ? next.progress : 0,
@@ -23,7 +23,7 @@ export const fade /*({ current, closing }) => ({
     },
   };
 };
-export const openConfig = {
+export const openConfig: TransitionSpec = {
   animation: "timing",
   config: {
     duration: 600,
@@ -31,7 +31,7 @@ export const openConfig = {
   },
 };
 //TODO: What actually is the closing animation? Does it actually fade out? I suspect not.
-export const closeConfig = {
+export const closeConfig: TransitionSpec = {
   animation: "timing",
   config: {
     duration: 600,

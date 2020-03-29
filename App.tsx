@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import AppContainer from "./navigation/AppContainer";
+import AppContainer from "./src/navigation/AppContainer";
 import * as Font from "expo-font";
 
-export default App = () => {
+const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const loadFonts = async () => {
@@ -18,3 +18,4 @@ export default App = () => {
 
   return fontsLoaded ? <AppContainer /> : null;
 };
+export default App;
