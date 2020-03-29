@@ -31,10 +31,5 @@
     "babel-preset-expo": "~8.0.0",
     "@babel/core": "^7.0.0"
   },
-  "private": true,
-  "rnpm": {
-    "assets": [
-      "./assets/fonts"
-    ]
-  }
+  "private": true
 }
