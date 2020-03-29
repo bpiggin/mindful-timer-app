@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "../styles";
 import {
   Text,
   View,
   TextInput,
   Keyboard,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
 } from "react-native";
 
 export default class DurationEntry extends React.Component {
@@ -34,7 +35,7 @@ export default class DurationEntry extends React.Component {
       //TODO:Get delay from storage and check which screen we should go to here.
       this.props.navigation.navigate("Settle", {
         duration: parseInt(this.state.duration),
-        delay: 3
+        delay: 3,
       });
     }
   }
@@ -59,8 +60,7 @@ export default class DurationEntry extends React.Component {
         <View style={{ padding: 80 }}>
           <TouchableOpacity
             onPress={() => this.onBeginPressed()}
-            style={styles.button}
-          >
+            style={styles.button}>
             <Text style={styles.bodyText}>Begin</Text>
           </TouchableOpacity>
         </View>
