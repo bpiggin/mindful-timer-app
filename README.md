@@ -22,16 +22,14 @@ Run `npm run ios` to open a simulator (requires XCode)
 ## TODO List
 
 Make `Begin` button styling better\
-Fix fade transitions on iOS\
 Improve button spacing on timer screen\
 Prevent hiding the timer when paused\
-Disable pause button when timer is hidden\
+Disable buttons when timer is hidden\
 Improve dark theme color scheme\
 Add logo to home screen
 
 ### Long term
 
-Implement **Typescript**\
-Re-write with functional components
+Add user options
 
 ## ~ Namaste ~
