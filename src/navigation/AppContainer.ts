@@ -2,10 +2,10 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 //Screens
-import HomeScreen from "../screens/HomeScreen.js";
-import SettleScreen from "../screens/SettleScreen.js";
-import TimerScreen from "../screens/TimerScreen.js";
-import CompletionScreen from "../screens/CompletionScreen.js";
+import HomeScreen from "../screens/HomeScreen";
+import SettleScreen from "../screens/SettleScreen";
+import TimerScreen from "../screens/TimerScreen";
+import CompletionScreen from "../screens/CompletionScreen";
 import { fade, openConfig, closeConfig } from "./navigationConfig";
 
 const RootStack = createStackNavigator(
@@ -24,10 +24,10 @@ const RootStack = createStackNavigator(
         close: closeConfig,
       },
       cardStyle: {
-        backgroundColor: "#000000",
+        backgroundColor: "black",
         opacity: 1,
       },
     },
   },
 );
-export default AppContainer = createAppContainer(RootStack);
+export default createAppContainer(RootStack);
