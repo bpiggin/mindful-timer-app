@@ -12,8 +12,9 @@ interface ITimerProps {
 }
 
 const Timer = ({ duration, navigation }: ITimerProps) => {
-  const [count, setCount] = useState(duration);
-  const [paused, setPaused] = useState(false);
+  const [count, setCount] = useState<number>(duration + 1);
+  const [paused, setPaused] = useState<boolean>(false);
+  const [starting, setStarting] = useState<boolean>(true);
   let playbackInstance: null | Audio.Sound = null;
 
   //Incrementer
@@ -29,7 +30,7 @@ const Timer = ({ duration, navigation }: ITimerProps) => {
   };
 
   //Start timer
-  useInterval(incrementTimer, paused ? null : 1000);
+  useInterval(incrementTimer, paused || starting ? null : 1000);
 
   //Ring the bell
   useEffect(() => {
@@ -42,7 +43,10 @@ const Timer = ({ duration, navigation }: ITimerProps) => {
         console.error(error);
       }
     };
-    ringBell();
+    setTimeout(() => {
+      setStarting(false);
+      ringBell();
+    }, 1400);
   }, []);
 
   const onPlayPausePressed = () => {

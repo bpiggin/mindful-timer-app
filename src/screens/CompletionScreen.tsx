@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import styles from "../../styles";
 import { Audio } from "expo-av";
 import { Feather } from "@expo/vector-icons";
+import FadeIn from "../components/FadeIn";
 
 /*
  * Completion screen. Say well done to the user.
@@ -28,6 +29,7 @@ const CompletionScreen = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
+      <FadeIn />
       <View style={styles.middle}>
         <Text style={styles.titleText}>
           {Math.floor(navigation.getParam("duration", 600) / 60)}{" "}
