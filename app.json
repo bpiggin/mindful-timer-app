@@ -4,11 +4,7 @@
     "slug": "MindfulTimer",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,15 +16,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bpiggin.mindfultimer"
+      "bundleIdentifier": "com.bpiggin.mindfultimer",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.bpiggin.mindfultimer"
+      "package": "com.bpiggin.mindfultimer",
+      "versionCode": 1,
+      "backgroundColor": "#000000",
+      "permissions": []
     },
     "description": "Simple black and white themed meditation timer.",
     "githubUrl": "https://github.com/bpiggin/mindful-timer-app"
