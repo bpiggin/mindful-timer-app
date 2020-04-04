@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Text, View, BackHandler } from "react-native";
 import styles from "../../styles";
 
+const TEN_SECONDS = 10000;
+
 /*
  * Settle screen. Delay before timer begins.
  */
@@ -16,7 +18,7 @@ const SettleScreen = ({ navigation }: any) => {
       navigation.navigate("Timer", {
         duration: parseInt(navigation.getParam("duration", 10)),
       });
-    });
+    }, TEN_SECONDS);
     return BackHandler.removeEventListener(
       "hardwareBackPress",
       handleBackPress,

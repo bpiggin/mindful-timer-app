@@ -29,7 +29,7 @@ const Timer = ({ duration, navigation }: ITimerProps) => {
   };
 
   //Start timer
-  useInterval(() => incrementTimer, paused ? null : 1000);
+  useInterval(incrementTimer, paused ? null : 1000);
 
   //Ring the bell
   useEffect(() => {

@@ -6,10 +6,10 @@ import DurationEntry from "../components/DurationEntry";
 /*
  * Main screen of the app. Enter a time and press begin.
  */
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
-      <DurationEntry />
+      <DurationEntry navigation={navigation} />
     </View>
   );
 };
