@@ -11,12 +11,12 @@ import { useKeepAwake } from "expo-keep-awake";
 const TimerScreen = ({ navigation }: any) => {
   const duration = navigation.getParam("duration", 10) * 60;
   const [opacity] = useState(new Animated.Value(1));
-  const [hidden, setHidden] = useState(false);
+  const [screenHidden, setScreenHidden] = useState(false);
 
   useKeepAwake();
 
   const screenPressed = () => {
-    if (hidden) {
+    if (screenHidden) {
       Animated.timing(opacity, {
         toValue: 1,
         easing: Easing.cubic,
@@ -29,7 +29,7 @@ const TimerScreen = ({ navigation }: any) => {
         duration: 800,
       }).start();
     }
-    setHidden(!hidden);
+    setScreenHidden(!screenHidden);
     return true;
   };
   return (
@@ -38,7 +38,7 @@ const TimerScreen = ({ navigation }: any) => {
       opacity={opacity}
       onStartShouldSetResponder={screenPressed}>
       <FadeIn />
-      <Timer duration={duration} navigation={navigation} />
+      <Timer duration={duration} navigation={navigation} screenHidden={screenHidden}/>
     </Animated.View>
   );
 };

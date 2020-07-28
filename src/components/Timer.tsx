@@ -9,9 +9,10 @@ import { formatTime } from "../utilities/helpers";
 interface ITimerProps {
   duration: number;
   navigation: any;
+  screenHidden: boolean;
 }
 
-const Timer = ({ duration, navigation }: ITimerProps) => {
+const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   const [count, setCount] = useState<number>(duration + 1);
   const [paused, setPaused] = useState<boolean>(false);
   const [starting, setStarting] = useState<boolean>(true);
@@ -66,17 +67,17 @@ const Timer = ({ duration, navigation }: ITimerProps) => {
     <View style={styles.container}>
       <Text style={styles.timerText}>{formatTime(count)}</Text>
       <View style={styles.horizontalContainer}>
-        <TouchableOpacity onPress={discardPressed}>
+        <TouchableOpacity onPress={discardPressed} disabled={screenHidden}>
           {paused ? <Feather name="trash" color="white" size={36} /> : null}
         </TouchableOpacity>
-        <TouchableOpacity onPress={onPlayPausePressed}>
+        <TouchableOpacity  onPress={onPlayPausePressed} disabled={screenHidden}>
           {paused ? (
             <Feather name="play" color="white" size={36} />
           ) : (
             <Feather name="pause" color="white" size={36} />
           )}
         </TouchableOpacity>
-        <TouchableOpacity onPress={finishEarlyPressed}>
+        <TouchableOpacity onPress={finishEarlyPressed} disabled={screenHidden}>
           {paused ? <Feather name="check" color="white" size={36} /> : null}
         </TouchableOpacity>
       </View>
