@@ -25,7 +25,10 @@ Make `Begin` button styling better\
 Improve button spacing on timer screen\
 Prevent hiding the timer when paused\
 Improve dark theme color scheme\
-Add logo to home screen
+Add logo to home screen\
+Add a "meditation streak" metric to the completed screen\
+maybe remove the "." and "," options for the time input\
+When you click delete, add "are you sure you want to delete" popup
 
 ### Long term
 
