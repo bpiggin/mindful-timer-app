@@ -23,9 +23,8 @@ Run `npm run ios` to open a simulator (requires XCode)
 
 Make `Begin` button styling better\
 Improve dark theme color scheme\
-Add logo to home screen\
 Add a "meditation streak" metric to the completed screen\
-maybe remove the "." and "," options for the time input\
+Maybe remove the "." and "," options for the time input - android only issue (no quick fix)\
 When you click delete, add "are you sure you want to delete" popup
 
 ### Long term
