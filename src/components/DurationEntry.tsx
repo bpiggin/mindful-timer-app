@@ -7,6 +7,7 @@ import {
   Keyboard,
   TouchableOpacity,
   StatusBar,
+  Image
 } from "react-native";
 
 const QUESTION_TEXT = "How many minutes are you meditating for?";
@@ -37,6 +38,8 @@ const DurationEntry = ({ navigation }: any) => {
   };
   return (
     <View style={styles.container}>
+      <Image source={require('../../assets/icon.png')}
+             style={styles.logo}/>
       <StatusBar hidden={true} />
       <Text style={styles.titleText}>{QUESTION_TEXT}</Text>
       <TextInput

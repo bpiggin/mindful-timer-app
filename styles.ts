@@ -72,6 +72,10 @@ const styles = StyleSheet.create({
     paddingLeft:26,
     paddingRight:26,
     paddingTop:20
+  },
+  logo: {
+    width: 80,
+    height: 80
   }
 });
 export default styles;
