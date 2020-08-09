@@ -22,8 +22,6 @@ Run `npm run ios` to open a simulator (requires XCode)
 ## TODO List
 
 Make `Begin` button styling better\
-Improve button spacing on timer screen\
-Prevent hiding the timer when paused\
 Improve dark theme color scheme\
 Add logo to home screen\
 Add a "meditation streak" metric to the completed screen\
