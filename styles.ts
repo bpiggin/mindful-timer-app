@@ -12,8 +12,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingHorizontal: 100,
-    padding: 0,
+    padding: 10,
   },
   titleText: {
     fontSize: 40,
@@ -28,6 +27,7 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-regular",
     textAlign: "center",
     padding: 10,
+    paddingTop: 60
   },
   inputText: {
     fontSize: 70,
@@ -68,5 +68,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     marginTop: 200,
   },
+  timerButton: {
+    paddingLeft:26,
+    paddingRight:26,
+    paddingTop:20
+  },
+  logo: {
+    width: 80,
+    height: 80
+  }
 });
 export default styles;

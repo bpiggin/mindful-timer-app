@@ -41,7 +41,7 @@ const CompletionScreen = ({ navigation }: any) => {
       </View>
       <View style={styles.bottom}>
         <TouchableOpacity onPress={onHomePressed}>
-          <Feather name="home" color="white" size={36} />
+          <Feather name="home" color="white" size={45} />
         </TouchableOpacity>
       </View>
     </View>
