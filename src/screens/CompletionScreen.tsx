@@ -4,6 +4,7 @@ import styles from "../../styles";
 import { Audio } from "expo-av";
 import { Feather } from "@expo/vector-icons";
 import FadeIn from "../components/FadeIn";
+import DayStreak from "../components/DayStreak";
 
 /*
  * Completion screen. Say well done to the user.
@@ -38,6 +39,9 @@ const CompletionScreen = ({ navigation }: any) => {
             : "minutes"}{" "}
           completed
         </Text>
+      </View>
+      <View style={styles.middle}>
+        <DayStreak navigation={navigation} />
       </View>
       <View style={styles.bottom}>
         <TouchableOpacity onPress={onHomePressed}>

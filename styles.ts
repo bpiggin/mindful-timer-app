@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   middle: {
     flex: 1,
     justifyContent: "flex-start",
-    marginTop: 200,
+    marginTop: 100,
   },
   timerButton: {
     paddingLeft:26,
