@@ -21,6 +21,7 @@ Run `npm run ios` to open a simulator (requires XCode)
 
 ## TODO List
 
+ADD ESLINT!\
 Make `Begin` button styling better\
 Improve dark theme color scheme\
 Add a "meditation streak" metric to the completed screen\
