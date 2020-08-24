@@ -71,24 +71,20 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
       <View style={styles.horizontalContainer}>
         <View style={styles.timerButton}>
           <TouchableOpacity onPress={discardPressed} disabled={screenHidden}>
-            {paused ? <Feather name="trash" color="white" size={45} /> : null}
+            {paused ? <Feather name="trash" color="white" size={45} />  : null}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity
-            onPress={onPlayPausePressed}
-            disabled={screenHidden}>
+          <TouchableOpacity onPress={onPlayPausePressed} disabled={screenHidden}>
             {paused ? (
-              <Feather name="play" color="white" size={45} />
+              <Feather name="play" color="white" size={45}/>
             ) : (
               <Feather name="pause" color="white" size={45} borderRadius={3} />
             )}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity
-            onPress={finishEarlyPressed}
-            disabled={screenHidden}>
+          <TouchableOpacity onPress={finishEarlyPressed} disabled={screenHidden}>
             {paused ? <Feather name="check" color="white" size={45} /> : null}
           </TouchableOpacity>
         </View>
