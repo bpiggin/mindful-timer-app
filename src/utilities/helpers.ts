@@ -25,6 +25,14 @@ export const formatTime = (seconds: number) => {
   return hoursFormatted + minutesFormatted + secondsFormatted;
 };
 
+const setStreak = async (count: number) => {
+  await AsyncStorage.setItem(
+    "@streak",
+    JSON.stringify({ count, timestamp: moment().toISOString() }),
+  );
+  return count;
+};
+
 export const updateStreak = async (): Promise<number> => {
   const streakData = await AsyncStorage.getItem("@streak").catch((e) =>
     console.log(e),
@@ -37,16 +45,10 @@ export const updateStreak = async (): Promise<number> => {
       !today.isSame(lastMeditated, "day") &&
       today.diff(lastMeditated, "hours") < 24
     ) {
-      await AsyncStorage.setItem(
-        "@streak",
-        JSON.stringify({ count: count + 1, timestamp: moment().toISOString() }),
-      );
-      return count + 1;
+      return setStreak(count + 1);
+    } else if (today.isSame(lastMeditated, "day")) {
+      return setStreak(count);
     }
   }
-  await AsyncStorage.setItem(
-    "@streak",
-    JSON.stringify({ count: 1, timestamp: moment().toISOString() }),
-  );
-  return 1;
+  return setStreak(1);
 };
