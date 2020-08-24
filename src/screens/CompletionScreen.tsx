@@ -4,12 +4,13 @@ import styles from "../../styles";
 import { Audio } from "expo-av";
 import { Feather } from "@expo/vector-icons";
 import FadeIn from "../components/FadeIn";
-import DayStreak from "../components/DayStreak";
 
 /*
  * Completion screen. Say well done to the user.
  */
 const CompletionScreen = ({ navigation }: any) => {
+  const streak = navigation.getParam("streak") ?? 1;
+
   //Ring the bell
   useEffect(() => {
     const ringBell = async () => {
@@ -41,7 +42,9 @@ const CompletionScreen = ({ navigation }: any) => {
         </Text>
       </View>
       <View style={styles.middle}>
-        <DayStreak navigation={navigation} />
+        <Text style={styles.titleText}>
+          {`You have meditated for ${streak} days in a row`}
+        </Text>
       </View>
       <View style={styles.bottom}>
         <TouchableOpacity onPress={onHomePressed}>

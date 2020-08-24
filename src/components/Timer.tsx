@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from "../../styles";
 import useInterval from "../utilities/hooks/UseInterval";
-import { formatTime } from "../utilities/helpers";
+import { formatTime, updateStreak } from "../utilities/helpers";
 
 interface ITimerProps {
   duration: number;
@@ -19,10 +19,12 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   let playbackInstance: null | Audio.Sound = null;
 
   //Incrementer
-  const incrementTimer = () => {
+  const incrementTimer = async () => {
     if (count === 0) {
+      const streak = await updateStreak();
       navigation.navigate("Completion", {
-        duration: duration,
+        duration,
+        streak,
       });
       playbackInstance?.unloadAsync();
       return;
@@ -69,20 +71,24 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
       <View style={styles.horizontalContainer}>
         <View style={styles.timerButton}>
           <TouchableOpacity onPress={discardPressed} disabled={screenHidden}>
-            {paused ? <Feather name="trash" color="white" size={45} />  : null}
+            {paused ? <Feather name="trash" color="white" size={45} /> : null}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity onPress={onPlayPausePressed} disabled={screenHidden}>
+          <TouchableOpacity
+            onPress={onPlayPausePressed}
+            disabled={screenHidden}>
             {paused ? (
-              <Feather name="play" color="white" size={45}/>
+              <Feather name="play" color="white" size={45} />
             ) : (
               <Feather name="pause" color="white" size={45} borderRadius={3} />
             )}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity onPress={finishEarlyPressed} disabled={screenHidden}>
+          <TouchableOpacity
+            onPress={finishEarlyPressed}
+            disabled={screenHidden}>
             {paused ? <Feather name="check" color="white" size={45} /> : null}
           </TouchableOpacity>
         </View>
