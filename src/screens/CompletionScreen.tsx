@@ -43,7 +43,9 @@ const CompletionScreen = ({ navigation }: any) => {
       </View>
       <View style={styles.middle}>
         <Text style={styles.titleText}>
-          {`You have meditated for ${streak} days in a row`}
+          {`You have meditated for ${streak} day${
+            streak > 1 ? "s" : ""
+          } in a row`}
         </Text>
       </View>
       <View style={styles.bottom}>
