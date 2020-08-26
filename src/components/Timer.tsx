@@ -60,9 +60,11 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
     navigation.navigate("Home");
   };
 
-  const finishEarlyPressed = () => {
+  const finishEarlyPressed = async () => {
+    const streak = await updateStreak();
     navigation.navigate("Completion", {
       duration: duration - count,
+      streak,
     });
   };
   return (

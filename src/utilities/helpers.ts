@@ -41,10 +41,7 @@ export const updateStreak = async (): Promise<number> => {
     const { count, timestamp } = JSON.parse(streakData) as Streak;
     const lastMeditated = moment(timestamp);
     const today = moment();
-    if (
-      !today.isSame(lastMeditated, "day") &&
-      today.diff(lastMeditated, "hours") < 24
-    ) {
+    if (today.diff(lastMeditated, "days") === 1) {
       return setStreak(count + 1);
     } else if (today.isSame(lastMeditated, "day")) {
       return setStreak(count);
