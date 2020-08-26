@@ -29,13 +29,13 @@ const setStreak = async (count: number) => {
   await AsyncStorage.setItem(
     "@streak",
     JSON.stringify({ count, timestamp: moment().toISOString() }),
-  );
+  ).catch((e) => console.error(e));
   return count;
 };
 
 export const updateStreak = async (): Promise<number> => {
   const streakData = await AsyncStorage.getItem("@streak").catch((e) =>
-    console.log(e),
+    console.error(e),
   );
   if (streakData) {
     const { count, timestamp } = JSON.parse(streakData) as Streak;
