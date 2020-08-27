@@ -41,7 +41,7 @@ const updateStreakData = async (count: number,
  */
 export const getDayStreak = async () => {
   // Get the stored data.
-  var { count, lastDay } = await getStreakData();
+  let { count, lastDay } = await getStreakData();
 
   // Get the current date.
   const currentDay = new Date();
