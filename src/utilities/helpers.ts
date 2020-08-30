@@ -1,7 +1,7 @@
 const SECONDS_IN_AN_HOUR = 3600;
 
 export const formatTime = (seconds: number) => {
-  let hoursFormatted = "";
+  let hoursFormatted = '';
   if (seconds > SECONDS_IN_AN_HOUR) {
     hoursFormatted =
       Math.floor(seconds / SECONDS_IN_AN_HOUR) > 9
@@ -13,6 +13,6 @@ export const formatTime = (seconds: number) => {
     Math.floor(seconds / 60) > 9
       ? `${Math.floor(seconds / 60)}:`
       : `0${Math.floor(seconds / 60)}:`;
-  let secondsFormatted = seconds % 60 > 9 ? seconds % 60 : "0" + (seconds % 60);
+  let secondsFormatted = seconds % 60 > 9 ? seconds % 60 : '0' + (seconds % 60);
   return hoursFormatted + minutesFormatted + secondsFormatted;
 };

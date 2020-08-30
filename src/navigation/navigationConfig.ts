@@ -1,8 +1,8 @@
-import { Easing, Animated } from "react-native";
+import { Easing, Animated } from 'react-native';
 import {
   TransitionSpec,
   StackCardInterpolationProps,
-} from "react-navigation-stack/lib/typescript/src/vendor/types";
+} from 'react-navigation-stack/lib/typescript/src/vendor/types';
 
 //Transition animation.
 export const fade = ({ current }: StackCardInterpolationProps) => ({
@@ -12,14 +12,14 @@ export const fade = ({ current }: StackCardInterpolationProps) => ({
 });
 
 export const openConfig: TransitionSpec = {
-  animation: "timing",
+  animation: 'timing',
   config: {
     duration: 1000,
     easing: Easing.quad,
   },
 };
 export const closeConfig: TransitionSpec = {
-  animation: "timing",
+  animation: 'timing',
   config: {
     duration: 500,
     easing: Easing.out(Easing.exp),

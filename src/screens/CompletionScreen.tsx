@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import styles from "../../styles";
-import { Audio } from "expo-av";
-import { Feather } from "@expo/vector-icons";
-import FadeIn from "../components/FadeIn";
-import DayStreak from "../components/DayStreak/DayStreak";
+import React, { useEffect } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import styles from '../../styles';
+import { Audio } from 'expo-av';
+import { Feather } from '@expo/vector-icons';
+import FadeIn from '../components/FadeIn';
+import DayStreak from '../components/DayStreak/DayStreak';
 
 /*
  * Completion screen. Say well done to the user.
@@ -15,7 +15,7 @@ const CompletionScreen = ({ navigation }: any) => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();
       try {
-        await soundObject.loadAsync(require("../../assets/bell.mp3"));
+        await soundObject.loadAsync(require('../../assets/bell.mp3'));
         await soundObject.playAsync();
       } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ const CompletionScreen = ({ navigation }: any) => {
   }, []);
 
   const onHomePressed = () => {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   };
 
   return (
@@ -33,15 +33,15 @@ const CompletionScreen = ({ navigation }: any) => {
       <FadeIn />
       <View style={styles.middle}>
         <Text style={styles.titleText}>
-          {Math.floor(navigation.getParam("duration", 600) / 60)}{" "}
-          {navigation.getParam("duration", 600) / 60 == 1
-            ? "minute"
-            : "minutes"}{" "}
+          {Math.floor(navigation.getParam('duration', 600) / 60)}{' '}
+          {navigation.getParam('duration', 600) / 60 == 1
+            ? 'minute'
+            : 'minutes'}{' '}
           completed
         </Text>
       </View>
       <View style={styles.middle}>
-        <DayStreak/>
+        <DayStreak />
       </View>
       <View style={styles.bottom}>
         <TouchableOpacity onPress={onHomePressed}>

@@ -1,12 +1,12 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 //Screens
-import HomeScreen from "../screens/HomeScreen";
-import SettleScreen from "../screens/SettleScreen";
-import TimerScreen from "../screens/TimerScreen";
-import CompletionScreen from "../screens/CompletionScreen";
-import { fade, openConfig, closeConfig } from "./navigationConfig";
+import HomeScreen from '../screens/HomeScreen';
+import SettleScreen from '../screens/SettleScreen';
+import TimerScreen from '../screens/TimerScreen';
+import CompletionScreen from '../screens/CompletionScreen';
+import { fade, openConfig, closeConfig } from './navigationConfig';
 
 const RootStack = createStackNavigator(
   {
@@ -16,7 +16,7 @@ const RootStack = createStackNavigator(
     Completion: CompletionScreen,
   },
   {
-    headerMode: "none",
+    headerMode: 'none',
     defaultNavigationOptions: {
       cardStyleInterpolator: fade,
       transitionSpec: {
@@ -24,7 +24,7 @@ const RootStack = createStackNavigator(
         close: closeConfig,
       },
       cardStyle: {
-        backgroundColor: "black",
+        backgroundColor: 'black',
         opacity: 1,
       },
     },

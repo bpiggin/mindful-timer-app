@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styles from "../../styles";
+import React, { useState } from 'react';
+import styles from '../../styles';
 import {
   Text,
   View,
@@ -7,13 +7,13 @@ import {
   Keyboard,
   TouchableOpacity,
   StatusBar,
-  Image
-} from "react-native";
+  Image,
+} from 'react-native';
 
-const QUESTION_TEXT = "How many minutes are you meditating for?";
+const QUESTION_TEXT = 'How many minutes are you meditating for?';
 
 const DurationEntry = ({ navigation }: any) => {
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState('');
 
   const onChanged = (text: string) => {
     //No more than 12 hours of meditation
@@ -23,23 +23,22 @@ const DurationEntry = ({ navigation }: any) => {
       return;
     }
     //Don't let users enter . or , etc.
-    setDuration(text.replace(/[^0-9]/g, ""));
+    setDuration(text.replace(/[^0-9]/g, ''));
     //Dismiss the keyboard after they type two digits (who meditates for more than 99 mins..?)
-    if (+text.replace(/[^0-9]/g, "") > 9) {
+    if (+text.replace(/[^0-9]/g, '') > 9) {
       Keyboard.dismiss();
     }
   };
 
   const onBeginPressed = () => {
-    if (duration !== "" && +duration > 0) {
+    if (duration !== '' && +duration > 0) {
       //TODO:Get delay from storage and check which screen we should go to here.
-      navigation.navigate("Settle", { duration: parseInt(duration), delay: 3 });
+      navigation.navigate('Settle', { duration: parseInt(duration), delay: 3 });
     }
   };
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/icon.png')}
-             style={styles.logo}/>
+      <Image source={require('../../assets/icon.png')} style={styles.logo} />
       <StatusBar hidden={true} />
       <Text style={styles.titleText}>{QUESTION_TEXT}</Text>
       <TextInput
@@ -47,10 +46,10 @@ const DurationEntry = ({ navigation }: any) => {
         value={duration}
         underlineColorAndroid="#808080"
         style={styles.inputText}
-        keyboardType={"numeric"}
+        keyboardType={'numeric'}
         autoFocus={true}
         selectionColor="#202020"
-        onChangeText={text => onChanged(text)}
+        onChangeText={(text) => onChanged(text)}
       />
       <View style={{ padding: 80 }}>
         <TouchableOpacity onPress={onBeginPressed} style={styles.button}>

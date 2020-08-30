@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Text, View, BackHandler } from "react-native";
-import styles from "../../styles";
-import FadeIn from "../components/FadeIn";
+import React, { useEffect } from 'react';
+import { Text, View, BackHandler } from 'react-native';
+import styles from '../../styles';
+import FadeIn from '../components/FadeIn';
 
 const TEN_SECONDS = 10000;
 
@@ -14,14 +14,14 @@ const SettleScreen = ({ navigation }: any) => {
   };
 
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", handleBackPress);
+    BackHandler.addEventListener('hardwareBackPress', handleBackPress);
     setTimeout(() => {
-      navigation.navigate("Timer", {
-        duration: parseInt(navigation.getParam("duration", 10)),
+      navigation.navigate('Timer', {
+        duration: parseInt(navigation.getParam('duration', 10)),
       });
     }, TEN_SECONDS);
     return BackHandler.removeEventListener(
-      "hardwareBackPress",
+      'hardwareBackPress',
       handleBackPress,
     );
   }, []);
