@@ -1,17 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-/*
- * Day streak utility functions
- */
-
-/*
- * Get the current count and the last day the user meditated.
- */
 const getStreakData = async () => {
-  // Worry what happens here if no key is found, however testing
-  // suggests this is fine.
-
-  // Update last streak count and last day meditated
   const lastDay = await AsyncStorage.getItem('@last_Day');
   return {
     count: Number(await AsyncStorage.getItem('@streak_Count')),
@@ -19,39 +8,23 @@ const getStreakData = async () => {
   };
 };
 
-/*
- * Save the current count and today's date meditated.
- */
 const updateStreakData = async (count: number, currentDay: Date) => {
   try {
-    // Update last streak count and last day meditated
-    // Async Storage can only store strings in key value pairs,
-    // so convert the count to a string.
     await AsyncStorage.setItem('@streak_Count', String(count));
     await AsyncStorage.setItem('@last_Day', currentDay.toISOString());
   } catch (e) {
-    // Error saving data, fail quietly...
+    console.log(e);
   }
 };
 
-/*
- * Calculate the current streak. That is, the number of consecutive
- * days the user has meditated for.
- */
 export const getDayStreak = async () => {
-  // Get the stored data.
   let { count, lastDay } = await getStreakData();
-
-  // Get the current date.
   const currentDay = new Date();
 
-  // Hacky, but set the current time, hour and seconds values to 0.
-  // This allows us to do easy comparisons with the stored value.
   currentDay.setHours(0);
   currentDay.setMinutes(0);
   currentDay.setSeconds(0, 0);
 
-  // Get yesterday's date
   const yesterday = new Date(currentDay.getTime());
   yesterday.setDate(yesterday.getDate() - 1);
 
@@ -87,7 +60,5 @@ export const getDayStreak = async () => {
     count = 0;
     updateStreakData(count, currentDay);
   }
-
-  // Return the (potentially updated) count.
   return count;
 };
