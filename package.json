@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "prettier": "prettier --write \"src/**/*\""
+    "prettier": "prettier --write \"src/**/*\"",
+    "lint": "eslint . --cache --quiet --ext .js,.ts,.tsx"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
