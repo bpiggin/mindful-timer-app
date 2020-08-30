@@ -5,12 +5,9 @@ import FadeIn from '../components/FadeIn';
 
 const TEN_SECONDS = 10000;
 
-/*
- * Settle screen. Delay before timer begins.
- */
 const SettleScreen = ({ navigation }: any) => {
   const handleBackPress = () => {
-    return true; // Do nothing when back button is pressed
+    return true;
   };
 
   useEffect(() => {

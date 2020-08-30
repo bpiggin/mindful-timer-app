@@ -18,7 +18,6 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   const [starting, setStarting] = useState<boolean>(true);
   let playbackInstance: null | Audio.Sound = null;
 
-  //Incrementer
   const incrementTimer = () => {
     if (count === 0) {
       navigation.navigate('Completion', {
@@ -30,10 +29,8 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
     setCount(count - 1);
   };
 
-  //Start timer
   useInterval(incrementTimer, paused || starting ? null : 1000);
 
-  //Ring the bell
   useEffect(() => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();

@@ -1,7 +1,6 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-//Screens
 import HomeScreen from '../screens/HomeScreen';
 import SettleScreen from '../screens/SettleScreen';
 import TimerScreen from '../screens/TimerScreen';

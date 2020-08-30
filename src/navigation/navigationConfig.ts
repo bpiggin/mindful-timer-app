@@ -1,10 +1,9 @@
-import { Easing, Animated } from 'react-native';
+import { Easing } from 'react-native';
 import {
   TransitionSpec,
   StackCardInterpolationProps,
 } from 'react-navigation-stack/lib/typescript/src/vendor/types';
 
-//Transition animation.
 export const fade = ({ current }: StackCardInterpolationProps) => ({
   cardStyle: {
     opacity: current.progress,

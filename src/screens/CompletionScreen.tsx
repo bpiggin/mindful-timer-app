@@ -6,11 +6,7 @@ import { Feather } from '@expo/vector-icons';
 import FadeIn from '../components/FadeIn';
 import DayStreak from '../components/DayStreak/DayStreak';
 
-/*
- * Completion screen. Say well done to the user.
- */
 const CompletionScreen = ({ navigation }: any) => {
-  //Ring the bell
   useEffect(() => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();

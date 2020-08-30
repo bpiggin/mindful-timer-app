@@ -16,15 +16,12 @@ const DurationEntry = ({ navigation }: any) => {
   const [duration, setDuration] = useState('');
 
   const onChanged = (text: string) => {
-    //No more than 12 hours of meditation
     if (+text > 12 * 60) {
       setDuration(String(12 * 60));
       Keyboard.dismiss();
       return;
     }
-    //Don't let users enter . or , etc.
     setDuration(text.replace(/[^0-9]/g, ''));
-    //Dismiss the keyboard after they type two digits (who meditates for more than 99 mins..?)
     if (+text.replace(/[^0-9]/g, '') > 9) {
       Keyboard.dismiss();
     }
@@ -32,7 +29,6 @@ const DurationEntry = ({ navigation }: any) => {
 
   const onBeginPressed = () => {
     if (duration !== '' && +duration > 0) {
-      //TODO:Get delay from storage and check which screen we should go to here.
       navigation.navigate('Settle', { duration: parseInt(duration), delay: 3 });
     }
   };
