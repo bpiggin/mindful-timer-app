@@ -13,7 +13,7 @@ const updateStreakData = async (count: number, currentDay: Date) => {
     await AsyncStorage.setItem('@streak_Count', String(count));
     await AsyncStorage.setItem('@last_Day', currentDay.toISOString());
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

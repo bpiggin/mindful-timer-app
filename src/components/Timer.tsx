@@ -16,13 +16,15 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   const [count, setCount] = useState<number>(duration + 1);
   const [paused, setPaused] = useState<boolean>(false);
   const [starting, setStarting] = useState<boolean>(true);
-  let playbackInstance: null | Audio.Sound = null;
+  const playbackInstance: null | Audio.Sound = null;
 
   const incrementTimer = () => {
     if (count === 0) {
       navigation.navigate('Completion', {
         duration: duration,
       });
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       playbackInstance?.unloadAsync();
       return;
     }
@@ -35,6 +37,7 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();
       try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         await soundObject.loadAsync(require('../../assets/bell.mp3'));
         await soundObject.playAsync();
       } catch (error) {

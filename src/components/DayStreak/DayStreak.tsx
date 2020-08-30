@@ -3,13 +3,15 @@ import { Text } from 'react-native';
 import styles from '../../../styles';
 import { getDayStreak } from './helpers';
 
-const DayStreak = () => {
+const DayStreak = (): JSX.Element => {
   const [streak, setStreak] = useState('');
 
   useEffect(() => {
-    getDayStreak().then((count) => {
-      setStreak(String(count));
-    });
+    getDayStreak()
+      .then((count) => {
+        setStreak(String(count));
+      })
+      .catch((e) => console.error(e));
   }, []);
 
   return (

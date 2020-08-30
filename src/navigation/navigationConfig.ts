@@ -4,6 +4,7 @@ import {
   StackCardInterpolationProps,
 } from 'react-navigation-stack/lib/typescript/src/vendor/types';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const fade = ({ current }: StackCardInterpolationProps) => ({
   cardStyle: {
     opacity: current.progress,

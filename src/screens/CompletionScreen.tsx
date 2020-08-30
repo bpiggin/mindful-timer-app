@@ -5,19 +5,25 @@ import { Audio } from 'expo-av';
 import { Feather } from '@expo/vector-icons';
 import FadeIn from '../components/FadeIn';
 import DayStreak from '../components/DayStreak/DayStreak';
+import { NavigationInjectedProps } from 'react-navigation';
 
-const CompletionScreen = ({ navigation }: any) => {
+const COMPLETED = 'completed';
+
+const CompletionScreen = ({
+  navigation,
+}: NavigationInjectedProps): JSX.Element => {
   useEffect(() => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();
       try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         await soundObject.loadAsync(require('../../assets/bell.mp3'));
         await soundObject.playAsync();
       } catch (error) {
         console.error(error);
       }
     };
-    ringBell();
+    ringBell().catch((e) => console.error(e));
   }, []);
 
   const onHomePressed = () => {
@@ -33,7 +39,7 @@ const CompletionScreen = ({ navigation }: any) => {
           {navigation.getParam('duration', 600) / 60 == 1
             ? 'minute'
             : 'minutes'}{' '}
-          completed
+          {COMPLETED}
         </Text>
       </View>
       <View style={styles.middle}>
@@ -41,7 +47,7 @@ const CompletionScreen = ({ navigation }: any) => {
       </View>
       <View style={styles.bottom}>
         <TouchableOpacity onPress={onHomePressed}>
-          <Feather name="home" color="white" size={45} />
+          <Feather name={'home'} color={'white'} size={45} />
         </TouchableOpacity>
       </View>
     </View>

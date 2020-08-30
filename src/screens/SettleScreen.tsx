@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { Text, View, BackHandler } from 'react-native';
 import styles from '../../styles';
 import FadeIn from '../components/FadeIn';
+import { NavigationInjectedProps } from 'react-navigation';
 
 const TEN_SECONDS = 10000;
+const SETTLE = 'Settle';
 
-const SettleScreen = ({ navigation }: any) => {
+const SettleScreen = ({ navigation }: NavigationInjectedProps): JSX.Element => {
   const handleBackPress = () => {
     return true;
   };
@@ -26,7 +28,7 @@ const SettleScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <FadeIn />
-      <Text style={styles.titleText}>Settle</Text>
+      <Text style={styles.titleText}>{SETTLE}</Text>
     </View>
   );
 };

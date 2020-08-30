@@ -4,8 +4,9 @@ import styles from '../../styles';
 import Timer from '../components/Timer';
 import FadeIn from '../components/FadeIn';
 import { useKeepAwake } from 'expo-keep-awake';
+import { NavigationInjectedProps } from 'react-navigation';
 
-const TimerScreen = ({ navigation }: any) => {
+const TimerScreen = ({ navigation }: NavigationInjectedProps): JSX.Element => {
   const duration = navigation.getParam('duration', 10) * 60;
   const [opacity] = useState(new Animated.Value(1));
   const [screenHidden, setScreenHidden] = useState(false);
