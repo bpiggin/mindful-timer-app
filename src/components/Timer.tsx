@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Audio } from "expo-av";
-import { Feather } from "@expo/vector-icons";
-import { Text, View, TouchableOpacity } from "react-native";
-import styles from "../../styles";
-import useInterval from "../utilities/hooks/UseInterval";
-import { formatTime } from "../utilities/helpers";
+import React, { useState, useEffect } from 'react';
+import { Audio } from 'expo-av';
+import { Feather } from '@expo/vector-icons';
+import { Text, View, TouchableOpacity } from 'react-native';
+import styles from '../../styles';
+import useInterval from '../utilities/hooks/UseInterval';
+import { formatTime } from '../utilities/helpers';
 
 interface ITimerProps {
   duration: number;
@@ -16,29 +16,29 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   const [count, setCount] = useState<number>(duration + 1);
   const [paused, setPaused] = useState<boolean>(false);
   const [starting, setStarting] = useState<boolean>(true);
-  let playbackInstance: null | Audio.Sound = null;
+  const playbackInstance: null | Audio.Sound = null;
 
-  //Incrementer
   const incrementTimer = () => {
     if (count === 0) {
-      navigation.navigate("Completion", {
+      navigation.navigate('Completion', {
         duration: duration,
       });
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       playbackInstance?.unloadAsync();
       return;
     }
     setCount(count - 1);
   };
 
-  //Start timer
   useInterval(incrementTimer, paused || starting ? null : 1000);
 
-  //Ring the bell
   useEffect(() => {
     const ringBell = async () => {
       const soundObject = new Audio.Sound();
       try {
-        await soundObject.loadAsync(require("../../assets/bell.mp3"));
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        await soundObject.loadAsync(require('../../assets/bell.mp3'));
         await soundObject.playAsync();
       } catch (error) {
         console.error(error);
@@ -55,11 +55,11 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
   };
 
   const discardPressed = () => {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   };
 
   const finishEarlyPressed = () => {
-    navigation.navigate("Completion", {
+    navigation.navigate('Completion', {
       duration: duration - count,
     });
   };
@@ -69,20 +69,26 @@ const Timer = ({ duration, navigation, screenHidden }: ITimerProps) => {
       <View style={styles.horizontalContainer}>
         <View style={styles.timerButton}>
           <TouchableOpacity onPress={discardPressed} disabled={screenHidden}>
-            {paused ? <Feather name="trash" color="white" size={45} />  : null}
+            {paused ? <Feather name="trash" color="white" size={45} /> : null}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity onPress={onPlayPausePressed} disabled={screenHidden}>
+          <TouchableOpacity
+            onPress={onPlayPausePressed}
+            disabled={screenHidden}
+          >
             {paused ? (
-              <Feather name="play" color="white" size={45}/>
+              <Feather name="play" color="white" size={45} />
             ) : (
               <Feather name="pause" color="white" size={45} borderRadius={3} />
             )}
           </TouchableOpacity>
         </View>
         <View style={styles.timerButton}>
-          <TouchableOpacity onPress={finishEarlyPressed} disabled={screenHidden}>
+          <TouchableOpacity
+            onPress={finishEarlyPressed}
+            disabled={screenHidden}
+          >
             {paused ? <Feather name="check" color="white" size={45} /> : null}
           </TouchableOpacity>
         </View>

@@ -1,13 +1,11 @@
-import React from "react";
-import { View } from "react-native";
-import styles from "../../styles";
-import DurationEntry from "../components/DurationEntry";
-import FadeIn from "../components/FadeIn";
+import React from 'react';
+import { View } from 'react-native';
+import styles from '../../styles';
+import DurationEntry from '../components/DurationEntry';
+import FadeIn from '../components/FadeIn';
+import { NavigationInjectedProps } from 'react-navigation';
 
-/*
- * Main screen of the app. Enter a time and press begin.
- */
-const HomeScreen = ({ navigation }: any) => {
+const HomeScreen = ({ navigation }: NavigationInjectedProps): JSX.Element => {
   return (
     <View style={styles.container}>
       <FadeIn />

@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
-import styles from "../../../styles";
-import  { getDayStreak }  from "./DayStreakUtil";
+import React, { useState, useEffect } from 'react';
+import { Text } from 'react-native';
+import styles from '../../../styles';
+import { getDayStreak } from './helpers';
 
-/*
- * Day streak. Display how many consecutive days the user has
- * meditated for.
- */
-const DayStreak = () => {
-  const [streak, setStreak] = useState("");
+const DayStreak = (): JSX.Element => {
+  const [streak, setStreak] = useState('');
 
-  // Call our function to calculate the day streak.
-  // This happens asynchronously. When it has completed, it will
-  // update the state on navigation object.
   useEffect(() => {
-    getDayStreak().then((count) => {
-      setStreak(String(count));})
-  }, [])
+    getDayStreak()
+      .then((count) => {
+        setStreak(String(count));
+      })
+      .catch((e) => console.error(e));
+  }, []);
 
   return (
     <Text style={styles.titleText}>

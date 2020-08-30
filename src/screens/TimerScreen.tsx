@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { Animated, Easing } from "react-native";
-import styles from "../../styles";
-import Timer from "../components/Timer";
-import FadeIn from "../components/FadeIn";
-import { useKeepAwake } from "expo-keep-awake";
+import React, { useState } from 'react';
+import { Animated, Easing } from 'react-native';
+import styles from '../../styles';
+import Timer from '../components/Timer';
+import FadeIn from '../components/FadeIn';
+import { useKeepAwake } from 'expo-keep-awake';
+import { NavigationInjectedProps } from 'react-navigation';
 
-/*
- * Timer screen. Displays a countdown timer.
- */
-const TimerScreen = ({ navigation }: any) => {
-  const duration = navigation.getParam("duration", 10) * 60;
+const TimerScreen = ({ navigation }: NavigationInjectedProps): JSX.Element => {
+  const duration = navigation.getParam('duration', 10) * 60;
   const [opacity] = useState(new Animated.Value(1));
   const [screenHidden, setScreenHidden] = useState(false);
 
@@ -36,9 +34,14 @@ const TimerScreen = ({ navigation }: any) => {
     <Animated.View
       style={styles.container}
       opacity={opacity}
-      onStartShouldSetResponder={screenPressed}>
+      onStartShouldSetResponder={screenPressed}
+    >
       <FadeIn />
-      <Timer duration={duration} navigation={navigation} screenHidden={screenHidden}/>
+      <Timer
+        duration={duration}
+        navigation={navigation}
+        screenHidden={screenHidden}
+      />
     </Animated.View>
   );
 };

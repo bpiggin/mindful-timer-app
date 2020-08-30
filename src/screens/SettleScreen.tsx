@@ -1,27 +1,26 @@
-import React, { useEffect } from "react";
-import { Text, View, BackHandler } from "react-native";
-import styles from "../../styles";
-import FadeIn from "../components/FadeIn";
+import React, { useEffect } from 'react';
+import { Text, View, BackHandler } from 'react-native';
+import styles from '../../styles';
+import FadeIn from '../components/FadeIn';
+import { NavigationInjectedProps } from 'react-navigation';
 
 const TEN_SECONDS = 10000;
+const SETTLE = 'Settle';
 
-/*
- * Settle screen. Delay before timer begins.
- */
-const SettleScreen = ({ navigation }: any) => {
+const SettleScreen = ({ navigation }: NavigationInjectedProps): JSX.Element => {
   const handleBackPress = () => {
-    return true; // Do nothing when back button is pressed
+    return true;
   };
 
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", handleBackPress);
+    BackHandler.addEventListener('hardwareBackPress', handleBackPress);
     setTimeout(() => {
-      navigation.navigate("Timer", {
-        duration: parseInt(navigation.getParam("duration", 10)),
+      navigation.navigate('Timer', {
+        duration: parseInt(navigation.getParam('duration', 10)),
       });
     }, TEN_SECONDS);
     return BackHandler.removeEventListener(
-      "hardwareBackPress",
+      'hardwareBackPress',
       handleBackPress,
     );
   }, []);
@@ -29,7 +28,7 @@ const SettleScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <FadeIn />
-      <Text style={styles.titleText}>Settle</Text>
+      <Text style={styles.titleText}>{SETTLE}</Text>
     </View>
   );
 };
